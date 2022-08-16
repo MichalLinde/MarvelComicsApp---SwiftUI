@@ -37,6 +37,20 @@ extension Comic{
             return ComicConstants.noAuthor
         }
     }
+    
+    func getAllAuthors(comic: Comic?) -> String{
+        if let comic = comic, let creators = comic.creators, let authors = creators.items, !authors.isEmpty{
+            var authorsString = ""
+            for author in authors {
+                if let name = author.name{
+                    authorsString += "\(name), "
+                }
+            }
+            return String(authorsString.prefix(authorsString.count - 2))
+        } else {
+            return ComicConstants.noAuthor
+        }
+    }
 
     func getDescription(comic: Comic?) -> String{
         if let comic = comic, let description = comic.description, !description.isEmpty{
@@ -73,7 +87,5 @@ extension String {
         guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
             return self
         }
-
-        return attributedString.string
     }
 }

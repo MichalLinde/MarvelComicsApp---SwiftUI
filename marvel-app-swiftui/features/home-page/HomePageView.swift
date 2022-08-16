@@ -26,7 +26,11 @@ struct HomePageView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: HomePageConstants.stackSpacing) {
                         ForEach(viewModel.comics, id: \.self){ comic in
-                            ComicsRow(comic: comic)
+                            NavigationLink{
+                                DetailsPageView(comic: comic)
+                            } label: {
+                                ComicsRow(comic: comic)
+                            }
                         }
                     }
                 }
@@ -36,7 +40,7 @@ struct HomePageView: View {
             }
             .navigationTitle(HomePageConstants.homePageTitle)
         }
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.automatic)
         
     }
     
