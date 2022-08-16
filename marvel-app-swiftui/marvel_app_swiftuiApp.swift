@@ -11,7 +11,7 @@ import SwiftUI
 struct marvel_app_swiftuiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePageView()
         }
     }
 }
