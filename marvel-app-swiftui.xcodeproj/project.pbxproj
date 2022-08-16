@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		904C101128AB6C7B000585E6 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C101028AB6C7B000585E6 /* DetailsPageView.swift */; };
 		904C101328AB90D2000585E6 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C101228AB90D2000585E6 /* BottomSheet.swift */; };
+		904C101728ABDA59000585E6 /* DetailsPageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C101628ABDA59000585E6 /* DetailsPageConstants.swift */; };
+		904C101928ABDC22000585E6 /* BottomSheetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C101828ABDC22000585E6 /* BottomSheetConstants.swift */; };
 		906944AA28A6892100E86414 /* ViewModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906944A928A6892100E86414 /* ViewModelContainer.swift */; };
 		9086B13228A53F520096477E /* marvel_app_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9086B13128A53F520096477E /* marvel_app_swiftuiApp.swift */; };
 		9086B13428A53F520096477E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9086B13328A53F520096477E /* HomePageView.swift */; };
@@ -59,6 +61,8 @@
 		8DE5BA2D0A1BAE406DB3AAD1 /* Pods-marvel-app-swiftui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvel-app-swiftui.debug.xcconfig"; path = "Target Support Files/Pods-marvel-app-swiftui/Pods-marvel-app-swiftui.debug.xcconfig"; sourceTree = "<group>"; };
 		904C101028AB6C7B000585E6 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
 		904C101228AB90D2000585E6 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		904C101628ABDA59000585E6 /* DetailsPageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageConstants.swift; sourceTree = "<group>"; };
+		904C101828ABDC22000585E6 /* BottomSheetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetConstants.swift; sourceTree = "<group>"; };
 		906944A928A6892100E86414 /* ViewModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContainer.swift; sourceTree = "<group>"; };
 		9086B12E28A53F520096477E /* marvel-app-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "marvel-app-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9086B13128A53F520096477E /* marvel_app_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marvel_app_swiftuiApp.swift; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 				90D9D74628A632AE00BAA67F /* ComicsConstants.swift */,
 				90D9D74828A6834F00BAA67F /* ComicsRowsConstants.swift */,
 				90D9D74A28A686BE00BAA67F /* HomePageConstants.swift */,
+				904C101628ABDA59000585E6 /* DetailsPageConstants.swift */,
+				904C101828ABDC22000585E6 /* BottomSheetConstants.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -472,7 +478,9 @@
 				9086B13428A53F520096477E /* HomePageView.swift in Sources */,
 				904C101328AB90D2000585E6 /* BottomSheet.swift in Sources */,
 				90D9D72E28A6274A00BAA67F /* Image.swift in Sources */,
+				904C101928ABDC22000585E6 /* BottomSheetConstants.swift in Sources */,
 				90D9D74E28A687E500BAA67F /* RepositoryContainer.swift in Sources */,
+				904C101728ABDA59000585E6 /* DetailsPageConstants.swift in Sources */,
 				90D9D73028A6276D00BAA67F /* Comic.swift in Sources */,
 				90D9D73F28A6289800BAA67F /* ComicsRepository.swift in Sources */,
 				90D9D74728A632AE00BAA67F /* ComicsConstants.swift in Sources */,

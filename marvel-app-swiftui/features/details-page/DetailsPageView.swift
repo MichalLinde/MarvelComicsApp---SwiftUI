@@ -23,25 +23,25 @@ struct DetailsPageView: View {
                     ProgressView()
                 }
             GeometryReader { geometry in
-                BottomSheet(isOpen: $presentSheet, maxHeight: geometry.size.height * 0.85){
+                BottomSheet(isOpen: $presentSheet, maxHeight: geometry.size.height * DetailsPageConstants.maxSheetHeight){
                     
                     GeometryReader { geomtry in
-                        VStack(alignment: .leading, spacing: 5){
+                        VStack(alignment: .leading, spacing: DetailsPageConstants.textStackSpacing){
                             Text(comic?.getComicTitle(comic: comic) ?? ComicConstants.noTitle)
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.system(size: DetailsPageConstants.titleFontSize, weight: .semibold))
                                 .foregroundColor(.black)
                             
                             Text(comic?.getAllAuthors(comic: comic) ?? ComicConstants.noAuthor)
-                                .font(.system(size: 14))
+                                .font(.system(size: DetailsPageConstants.authorFontSize))
                                 .foregroundColor(.gray)
                             
                             Text(comic?.getDescription(comic: comic) ?? ComicConstants.noDescription)
-                                .font(.system(size: 16))
+                                .font(.system(size: DetailsPageConstants.descriptionFontSize))
                                 .foregroundColor(.black)
 
                         }
                         .padding(.horizontal)
-                        .frame(minWidth: 0, maxWidth: geometry.size.width, alignment: .topLeading)
+                        .frame(minWidth: .zero, maxWidth: geometry.size.width, alignment: .topLeading)
                     }
                     
                 }
@@ -54,22 +54,22 @@ struct DetailsPageView: View {
                 Button(action: {
                     openURL(getComicsUrl(comic: comic))
                 }){
-                    Text("Find out more")
+                    Text(DetailsPageConstants.moreButtonText)
                         .background(Color.red)
-                        .cornerRadius(5)
-                        .font(.system(size: 18, weight: .medium))
+                        .cornerRadius(DetailsPageConstants.moreButtonRadius)
+                        .font(.system(size: DetailsPageConstants.moreButtonFontSize, weight: .medium))
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, maxHeight: DetailsPageConstants.moreButtonHeight)
                 }
                 .background(Color.red)
-                .cornerRadius(5)
-                .frame(width: .infinity, height: 60)
-                .padding([.leading, .trailing], 15)
-                .padding([.bottom], 20)
+                .cornerRadius(DetailsPageConstants.moreButtonRadius)
+                .frame(width: .infinity, height: DetailsPageConstants.moreButtonHeight)
+                .padding([.leading, .trailing], DetailsPageConstants.moreButtonHorizontalPadding)
+                .padding([.bottom], DetailsPageConstants.moreButtonBottomPadding)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Details")
+        .navigationTitle(DetailsPageConstants.pageTitle)
     }
     
     
@@ -79,7 +79,7 @@ struct DetailsPageView: View {
                 return url
             }
         }
-        return URL(string: "https://www.marvel.com/")!
+        return URL(string: DetailsPageConstants.defaultUrl)!
     }
 }
 

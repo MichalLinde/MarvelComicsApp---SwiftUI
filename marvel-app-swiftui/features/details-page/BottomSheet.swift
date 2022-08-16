@@ -15,21 +15,21 @@ struct BottomSheet<Content: View> : View {
     let minHeight: CGFloat
     let content: Content
     
-    @GestureState private var translation: CGFloat = 0
+    @GestureState private var translation: CGFloat = .zero
     
-    private var offset: CGFloat { isOpen ? 0 : maxHeight - minHeight}
+    private var offset: CGFloat { isOpen ? .zero : maxHeight - minHeight}
     
     private var indicator: some View {
-        RoundedRectangle(cornerRadius: 15)
+        RoundedRectangle(cornerRadius: BottomSheetConstants.sheetRadius)
             .fill(Color.gray)
-            .frame(width: 60, height: 6)
+            .frame(width: BottomSheetConstants.grabberWidth, height: BottomSheetConstants.grabberHeight)
             .onTapGesture {
                 self.isOpen.toggle()
             }
     }
     
     init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
-        self.minHeight = maxHeight * 0.3
+        self.minHeight = maxHeight * BottomSheetConstants.sheetHeightRation
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
@@ -37,22 +37,22 @@ struct BottomSheet<Content: View> : View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 self.indicator.padding()
                 self.content
             }
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
             .background(Color.white)
-            .cornerRadius(15)
+            .cornerRadius(BottomSheetConstants.sheetRadius)
             .frame(height: geometry.size.height, alignment: .bottom)
-            .animation(.interactiveSpring(response: 0.1), value: self.translation)
-            .animation(.interactiveSpring(response: 0.1), value: self.isOpen)
-            .offset(y: max(self.offset + self.translation, 0))
+            .animation(.interactiveSpring(response: BottomSheetConstants.animationResponse), value: self.translation)
+            .animation(.interactiveSpring(response: BottomSheetConstants.openAnimationResponse), value: self.isOpen)
+            .offset(y: max(self.offset + self.translation, .zero))
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.height
                 }.onEnded { value in
-                    let snapDistance = self.maxHeight * 0.25
+                    let snapDistance = self.maxHeight * BottomSheetConstants.snapRation
                     guard abs(value.translation.height) > snapDistance else {
                         return
                     }

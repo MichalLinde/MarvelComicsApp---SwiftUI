@@ -18,7 +18,6 @@ struct ComicsRow: View {
                 AsyncImage(
                     url: comic?.getCoverUrl(comic: comic)){ image in
                             image.resizable()
-                                .aspectRatio(contentMode: .fill)
                                 .frame(width: ComicsRowConstants.imageWidth)
                                 
                         } placeholder: {
